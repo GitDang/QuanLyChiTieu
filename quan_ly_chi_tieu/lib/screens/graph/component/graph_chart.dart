@@ -416,16 +416,16 @@ class _GraphChartController extends GetxController {
     var selectDateType = listDateTypes[selectedIndex.value];
     switch (selectDateType) {
       case 'day':
-        showDateRange.value = DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'yyyy年MM月dd日');
+        showDateRange.value = DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'yyyy/MM/dd');
         break;
       case 'week':
-        showDateRange.value = '${DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'MM月dd日')}~${DateTimeUtil.stringFromDateTime(endDateFormat, dateFormat: 'MM月dd日')}';
+        showDateRange.value = '${DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'MM/dd')}~${DateTimeUtil.stringFromDateTime(endDateFormat, dateFormat: 'MM/dd')}';
         break;
       case 'month':
-        showDateRange.value =  DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'yyyy年MM月');
+        showDateRange.value =  DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'yyyy/MM');
         break;
       case 'year':
-        showDateRange.value =  DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'yyyy年');
+        showDateRange.value =  DateTimeUtil.stringFromDateTime(startDateFormat, dateFormat: 'yyyy');
         break;
     }
   }

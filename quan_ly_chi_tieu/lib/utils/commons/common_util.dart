@@ -223,7 +223,7 @@ class CommonUtil {
 // endregion
 
   static String moneyFormat(String price) {
-      return '${showMoneyFormat(price)}円';
+      return '${showMoneyFormat(price)}';
   }
 
   static String showMoneyFormat(String price) {
@@ -238,9 +238,9 @@ class CommonUtil {
     if (value >= 10000) {
       var newNumber = showMoneyFormat((value ~/ 10000).toString());
       if ((value % 10000) > 0) {
-        return '$newNumber.${((value % 10000) / 1000).round()}万';
+        return '$newNumber.${((value % 10000) / 1000).round()}';
       }
-      return '$newNumber万';
+      return newNumber;
     }
 
     return showMoneyFormat(value.toString());

@@ -169,7 +169,7 @@ class TransactionListCategoryScreen extends StatelessWidget {
 
 String changeShowDate(date) {
   var dateTime = DateTimeUtil.dateTimeFromString(date);
-  return DateTimeUtil.stringFromDateTime(dateTime, dateFormat: 'yyyy年MM月dd日');
+  return DateTimeUtil.stringFromDateTime(dateTime, dateFormat: 'yyyy/MM/dd');
 }
 
 class TransactionListCategoryController extends GetxController {

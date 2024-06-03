@@ -34,7 +34,7 @@ class CategoryAddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(CategoryAddController())..changeTypeCategory(typeCategory);
-    const List<String> listType = <String>['収入', '支出'];
+    const List<String> listType = <String>['Income', 'Expense'];
     var screenSize = MediaQuery.of(context).size;
 
     return BaseScreen(

@@ -4,7 +4,97 @@ class Messages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'ja': ja,
+        'en': en,
       };
+
+  Map<String, String> en = {
+    // Splash
+    'splash.title': 'Kanrimo',
+
+    // Input money first
+    'input_money.input_amount': 'Please input first money',
+    'input_money.to_next': 'Next',
+    'input_money.must_be_positive_number': 'Initially the amount must be a positive number',
+    'input_money.not_null': 'Please enter numbers only',
+    'input_money.max_value': 'Please enter within 8 characters',
+
+    // Introduction
+    'introduction.welcome': 'Welcome to Kanrimo！',
+    'introduction.expense_management': 'Kanrimo - An app that allows you to easily record your income and expenses',
+    'introduction.start': 'Start',
+
+    // Home
+    'home.title': 'Total',
+    'home.segmented.expense': 'Expense',
+    'home.segmented.income': 'Income',
+    'home.chart.no_expenses': 'No expenses has been generated',
+    'home.chart.no_incomes': 'No income has been generated',
+
+    // Add transaction
+    'add.transaction.title': 'Add transaction',
+    'add.transaction.category': 'Category',
+    'add.transaction.comment': 'Comment',
+    'add.transaction.photo': 'Photo',
+    'add.transaction.add': 'Add',
+    'add.transaction.category_required': 'Please select a category',
+    'add.transaction.date_required': 'Please choose a date',
+
+    // Currency
+    'yen': ' ',
+
+    // Datetime
+    'day': 'Day',
+    'week': 'Week',
+    'month': 'Month',
+    'year': 'Year',
+
+    // Category
+    'category.title': 'Category',
+    'category.create': 'Create',
+    'category.add': 'Create Category',
+    'category.name': 'Category Name',
+    'category.plan': 'Planned expenses',
+    'category.icon': 'Icon',
+    'category.color': 'Color',
+    'category.plus': 'Plus',
+    'category.add.name_required': 'Enter category name',
+    'category.monthly.must_be_positive_number': 'Planned expenditure must be a positive number',
+    'category.cost.fixed': ' Fixed costs',
+    'category.cost.extra': ' Variable costs',
+    'category.delete_confirm': 'Are you sure you want to delete the category?',
+    'category.not_remove': 'A list with existing transactions cannot be deleted.',
+    'category.no_transaction': 'No data',
+
+    // Transaction
+    'transaction.detail': 'Transaction details',
+    'transaction.money': 'amount',
+    'transaction.category': 'Category',
+    'transaction.date': 'Day',
+    'transaction.comment': 'Comment',
+    'transaction.delete': 'Delete',
+    'transaction.delete_confirm': 'Are you sure you want to delete the transaction?',
+    'transaction.yes': 'Yes',
+    'transaction.no': 'No',
+
+    // Graph
+    'graph.title': 'Graph',
+    'graph.all': 'All',
+    'graph.expense': 'Expense',
+    'graph.income': 'Income',
+    'graph.detail.all': 'General schedule',
+    'graph.detail.expense': 'Plan Expense',
+    'graph.detail.income': 'Plan Income',
+    'graph.detail.no_data.all': 'No all occurred',
+    'graph.detail.no_data.expense': 'No expense occurred',
+    'graph.detail.no_data.income': 'No income occurred',
+
+    // Menu
+    'menu.home': 'Total',
+    'menu.category': 'Category',
+    'menu.graph': 'Graph',
+    'menu.reset': 'Reset',
+    'menu.reset_confirm': 'Do you want to reset the app?',
+  };
 
   Map<String, String> ja = {
     // Splash

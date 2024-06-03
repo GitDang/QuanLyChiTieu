@@ -43,7 +43,7 @@ class InputFirstMoneyScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 const CustomLabel(
-                  title: 'JPY',
+                  title: '',
                   fontSize: 25,
                   fontWeight: FontWeight.w700,
                 ),

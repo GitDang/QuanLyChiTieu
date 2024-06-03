@@ -10,7 +10,7 @@ class LocaleManager {
   late Locale locale;
   late Locale fallbackLocale;
 
-  List<String> listLanguageCode = ['ja'];
+  List<String> listLanguageCode = ['en'];
 
   Future getCurrentLanguage() async {
     String? languageCode = await SharedPreferenceUtil.getLanguageCode();

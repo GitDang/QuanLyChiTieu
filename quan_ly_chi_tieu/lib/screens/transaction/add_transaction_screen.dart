@@ -73,7 +73,7 @@ class AddTransactionScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   const CustomLabel(
-                    title: 'JPY',
+                    title: '',
                     fontSize: 25,
                     fontWeight: FontWeight.w700,
                   ),
@@ -108,7 +108,7 @@ class AddTransactionScreen extends StatelessWidget {
                     // TODO:
                     DateTime? pickedDate = await showDatePicker(
                       context: context,
-                      locale: const Locale('ja', 'JA'),
+                      locale: const Locale('en', 'EN'),
                       initialDate: DateTime.now(), //get today's date
                       firstDate:DateTime(1970), //DateTime.now() - not to allow to choose before today.
                       lastDate: DateTime.now(),
@@ -391,7 +391,7 @@ class AddTransactionScreen extends StatelessWidget {
         controller.changeDateSelectOption(value);
       },
       child: Container(
-        width: 70,
+        width: 75,
         height: 58,
         decoration: BoxDecoration(
           color: (controller.dateSelected.value == value) ? ffFFE67C : ffEBEBD8,
@@ -471,9 +471,9 @@ class AddTransactionController extends GetxController {
   var listCategoryExtras = <CategoryModel>[].obs;
   var categorySelect = 0.obs;
   var dateOptions = <DateOption> [
-    DateOption(date: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 2)), dateFormat: 'MM/dd'), title: '2日前', value: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 2)))),
-    DateOption(date: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 1)), dateFormat: 'MM/dd'), title: '昨日', value: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 1)))),
-    DateOption(date: DateTimeUtil.stringFromDateTimeNow(dateFormat: 'MM/dd'), title: '今日', value: DateTimeUtil.stringFromDateTimeNow()),  
+    DateOption(date: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 2)), dateFormat: 'MM/dd'), title: '2 days ago', value: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 2)))),
+    DateOption(date: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 1)), dateFormat: 'MM/dd'), title: 'Tomorrow', value: DateTimeUtil.stringFromDateTime(DateTime.now().subtract(const Duration(days: 1)))),
+    DateOption(date: DateTimeUtil.stringFromDateTimeNow(dateFormat: 'MM/dd'), title: 'Today', value: DateTimeUtil.stringFromDateTimeNow()),  
   ];
 
   var showDateSelected = ''.obs;

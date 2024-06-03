@@ -1,3 +1,4 @@
+import 'package:base_project/screens/InApp/in_app.dart';
 import 'package:base_project/screens/base_screen.dart';
 import 'package:base_project/utils/commons/common_util.dart';
 import 'package:base_project/utils/commons/date_time.dart';
@@ -170,5 +171,9 @@ class HomeController extends GetxController {
         return i;
       }
     }
+  }
+
+  void openInapp() {
+    Get.to(() => const InApp());
   }
 }

@@ -1,4 +1,5 @@
 import 'package:base_project/resources/colors.dart';
+import 'package:base_project/screens/InApp/in_app.dart';
 import 'package:base_project/screens/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -74,6 +75,14 @@ class CustomAppBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // CustomButton(
+                //     width: 100,
+                //     title: 'Shop',
+                //     backgroundColor: Colors.blue,
+                //     onTap: () {
+                //       Get.to(() => const InApp(), transition: Transition.fade);
+                //     },
+                //   ),
                 if (iconName != null)
                   Padding(
                     padding: const EdgeInsets.only(right: 5),
