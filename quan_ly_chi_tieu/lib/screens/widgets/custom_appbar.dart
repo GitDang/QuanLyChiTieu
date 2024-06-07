@@ -119,23 +119,23 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
           ),
-          if (showTopRight)
-          GestureDetector(
-            behavior: HitTestBehavior.translucent,
-            onTap: () {
-              if (onTapTopRight != null) {
-                  onTapTopRight!();
-                }
-            },
-            child: Container(
-              color: Colors.transparent,
-              child: Image.asset(
-                AppImages.ic_remove,
-                width: 30,
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-          ),
+          // if (showTopRight)
+          // GestureDetector(
+          //   behavior: HitTestBehavior.translucent,
+          //   onTap: () {
+          //     if (onTapTopRight != null) {
+          //         onTapTopRight!();
+          //       }
+          //   },
+          //   child: Container(
+          //     color: Colors.transparent,
+          //     child: Image.asset(
+          //       AppImages.ic_remove,
+          //       width: 30,
+          //       fit: BoxFit.fitWidth,
+          //     ),
+          //   ),
+          // ),
         ]
       ),
     );
