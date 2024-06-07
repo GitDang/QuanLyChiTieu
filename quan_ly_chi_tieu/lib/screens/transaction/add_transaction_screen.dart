@@ -236,28 +236,28 @@ class AddTransactionScreen extends StatelessWidget {
                         ((controller.categorySelect.value == controller.listCategoryFixeds[i + 2].id) ? ffFFE67C : Colors.white)
                       ),
                     ),
-                  if ((controller.listCategoryFixeds.length >= i) && (controller.listCategoryFixeds.length < i + 3))
-                    Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(2),
-                          child: GestureDetector(
-                            onTap: () {
-                              controller.createCategory(Global.TYPE_FIXED);
-                            },
-                            child: Image.asset(AppImages.ic_create, width: 55, fit: BoxFit.fitWidth),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 60,
-                          child: CustomLabel(
-                            title: '',
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.center,
-                          ),
-                        )
-                      ],
-                    ),
+                  // if ((controller.listCategoryFixeds.length >= i) && (controller.listCategoryFixeds.length < i + 3))
+                  //   Column(
+                  //     children: [
+                  //       Container(
+                  //         padding: const EdgeInsets.all(2),
+                  //         child: GestureDetector(
+                  //           onTap: () {
+                  //             controller.createCategory(Global.TYPE_FIXED);
+                  //           },
+                  //           child: Image.asset(AppImages.ic_create, width: 55, fit: BoxFit.fitWidth),
+                  //         ),
+                  //       ),
+                  //       const SizedBox(
+                  //         width: 60,
+                  //         child: CustomLabel(
+                  //           title: '',
+                  //           overflow: TextOverflow.ellipsis,
+                  //           textAlign: TextAlign.center,
+                  //         ),
+                  //       )
+                  //     ],
+                  //   ),
                   ],
                 ),
               ),
@@ -324,28 +324,28 @@ class AddTransactionScreen extends StatelessWidget {
                         ((controller.categorySelect.value == controller.listCategoryExtras[i + 2].id) ? ffFFE67C : Colors.white)
                       ),
                     ),
-                  if ((controller.listCategoryExtras.length >= i) && (controller.listCategoryExtras.length < i + 3))
-                    Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(2),
-                          child: GestureDetector(
-                            onTap: () {
-                              controller.createCategory(Global.TYPE_EXTRA);
-                            },
-                            child: Image.asset(AppImages.ic_create, width: 55, fit: BoxFit.fitWidth),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 60,
-                          child: CustomLabel(
-                            title: '',
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.center,
-                          ),
-                        )
-                      ],
-                    ),
+                  // if ((controller.listCategoryExtras.length >= i) && (controller.listCategoryExtras.length < i + 3))
+                  //   Column(
+                  //     children: [
+                  //       Container(
+                  //         padding: const EdgeInsets.all(2),
+                  //         child: GestureDetector(
+                  //           onTap: () {
+                  //             controller.createCategory(Global.TYPE_EXTRA);
+                  //           },
+                  //           child: Image.asset(AppImages.ic_create, width: 55, fit: BoxFit.fitWidth),
+                  //         ),
+                  //       ),
+                  //       const SizedBox(
+                  //         width: 60,
+                  //         child: CustomLabel(
+                  //           title: '',
+                  //           overflow: TextOverflow.ellipsis,
+                  //           textAlign: TextAlign.center,
+                  //         ),
+                  //       )
+                  //     ],
+                  //   ),
                   ],
                 ),
               ),

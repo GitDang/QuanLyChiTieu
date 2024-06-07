@@ -1,4 +1,4 @@
-package com.minhvan.kanrimo
+package com.minhvan.kanrimmo
 
 import io.flutter.embedding.android.FlutterActivity
 

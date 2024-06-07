@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (firstMoney == true) {
         Get.offAll(() => const HomeScreen(), transition: Transition.fade);
       } else {
-        Get.offAll(() => const HomeScreen(), transition: Transition.fade);
+        Get.offAll(() => const IntroductionScreen(), transition: Transition.fade);
       }
     });
   }

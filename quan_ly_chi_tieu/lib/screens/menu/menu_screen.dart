@@ -11,8 +11,8 @@ class MenuScreen extends StatelessWidget {
     final controller = Get.put(_MenuController());
     var listMenu = [
       MenuModel('home', 'menu.home', AppImages.ic_menu_home),
-      MenuModel('category', 'menu.category', AppImages.ic_menu_cate),
-      MenuModel('graph', 'menu.graph', AppImages.ic_menu_graph),
+      // MenuModel('category', 'menu.category', AppImages.ic_menu_cate),
+      // MenuModel('graph', 'menu.graph', AppImages.ic_menu_graph),
     ];
     return BaseScreen(
       showAppBar: false,

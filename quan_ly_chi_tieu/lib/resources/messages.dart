@@ -56,7 +56,7 @@ class Messages extends Translations {
     'category.plan': 'Planned expenses',
     'category.icon': 'Icon',
     'category.color': 'Color',
-    'category.plus': 'Plus',
+    'category.plus': 'Add',
     'category.add.name_required': 'Enter category name',
     'category.monthly.must_be_positive_number': 'Planned expenditure must be a positive number',
     'category.cost.fixed': ' Fixed costs',
