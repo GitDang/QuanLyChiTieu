@@ -22,69 +22,71 @@ class HomeScreen extends StatelessWidget {
       showMenuButton: true,
       title: 'home.title',
       appBarIconName: AppImages.ic_nav_money,
-      child: Column(
-        children: [
-          const SizedBox(height: 20),
-          FittedBox(
-            child: CustomLabel(
-              title: '${Global.accountModel.money < 0 ? '-' : ''}${CommonUtil.moneyFormat(Global.accountModel.money.toString())}',
-              isLocale: false,
-              fontSize: 35,
-              fontWeight: FontWeight.w700,
-              color: Global.accountModel.money < 0 ? ffEA0503 : ff606060,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            FittedBox(
+              child: CustomLabel(
+                title: '${Global.accountModel.money < 0 ? '-' : ''}${CommonUtil.moneyFormat(Global.accountModel.money.toString())}',
+                isLocale: false,
+                fontSize: 35,
+                fontWeight: FontWeight.w700,
+                color: Global.accountModel.money < 0 ? ffEA0503 : ff606060,
+              ),
             ),
-          ),
-          const SizedBox(height: 14),
-          Obx(() => CustomSegmented(
-            listButtonTitle: const [
-              'home.segmented.income',
-              'home.segmented.expense',
-            ],
-            initIndex: controller.typeCategory.value,
-            didSelectedIndex: (int index) {
-              controller.changeSelectIndex(index);
-              controller.getListDataTransactions();
-            },
-          )),
-          const SizedBox(height: 20),
-          SizedBox(
-            height: heightContent,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                Obx(() => HomeChart(
-                  totalMoney: controller.totalMoney.toInt(),
-                  dataChart: controller.listTypeActive.toList(),
-                  startDate: controller.startDate.value,
-                  endDate: controller.endDate,
-                  currentState: controller.currentState,
-                  typeTransactions: controller.typeTransactions,
-                  onTapAddTransaction: () {
-                    controller.addTransaction(controller.typeCategory.value);
-                  },
-                  changeDate: (startDateChange, endDateChange, currentStateChange) {
-                    controller.changeDateRange(startDateChange, endDateChange);
-                    controller.changeCurrentState(currentStateChange);
-                    controller.getListDataTransactions();
-                  },
-                )),
-                const SizedBox(height: 20),
-                Obx(() => Column(
-                    children: [
-                      for (var indexList = 0; indexList < controller.listTypeActive.length; indexList++)
-                      GestureDetector(
-                        onTap: () {
-                          controller.goToTransactionByCategory(controller.listTypeActive[indexList].typeId);
-                        },
-                        child: TransactionCell(dataShow: controller.listTypeActive[indexList], totalMoney: controller.totalMoney.toInt()),
-                      ),
-                    ],
+            const SizedBox(height: 14),
+            Obx(() => CustomSegmented(
+              listButtonTitle: const [
+                'home.segmented.income',
+                'home.segmented.expense',
+              ],
+              initIndex: controller.typeCategory.value,
+              didSelectedIndex: (int index) {
+                controller.changeSelectIndex(index);
+                controller.getListDataTransactions();
+              },
+            )),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: heightContent,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                  Obx(() => HomeChart(
+                    totalMoney: controller.totalMoney.toInt(),
+                    dataChart: controller.listTypeActive.toList(),
+                    startDate: controller.startDate.value,
+                    endDate: controller.endDate,
+                    currentState: controller.currentState,
+                    typeTransactions: controller.typeTransactions,
+                    onTapAddTransaction: () {
+                      controller.addTransaction(controller.typeCategory.value);
+                    },
+                    changeDate: (startDateChange, endDateChange, currentStateChange) {
+                      controller.changeDateRange(startDateChange, endDateChange);
+                      controller.changeCurrentState(currentStateChange);
+                      controller.getListDataTransactions();
+                    },
+                  )),
+                  const SizedBox(height: 20),
+                  Obx(() => Column(
+                      children: [
+                        for (var indexList = 0; indexList < controller.listTypeActive.length; indexList++)
+                        GestureDetector(
+                          onTap: () {
+                            controller.goToTransactionByCategory(controller.listTypeActive[indexList].typeId);
+                          },
+                          child: TransactionCell(dataShow: controller.listTypeActive[indexList], totalMoney: controller.totalMoney.toInt()),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],)
+                ],)
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
