@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context)  {
+  Widget build(BuildContext context) {
     final controller = Get.put(HomeController())..getListDataTransactions();
     var screenSize = MediaQuery.of(context).size;
     var heightContent = screenSize.height - 250;
@@ -26,64 +26,90 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            FittedBox(
-              child: CustomLabel(
-                title: '${Global.accountModel.money < 0 ? '-' : ''}${CommonUtil.moneyFormat(Global.accountModel.money.toString())}',
-                isLocale: false,
-                fontSize: 35,
-                fontWeight: FontWeight.w700,
-                color: Global.accountModel.money < 0 ? ffEA0503 : ff606060,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                FittedBox(
+                  child: CustomLabel(
+                    title:
+                        '${Global.accountModel.money < 0 ? '-' : ''}${CommonUtil.moneyFormat(Global.accountModel.money.toString())}',
+                    isLocale: false,
+                    fontSize: 35,
+                    fontWeight: FontWeight.w700,
+                    color: Global.accountModel.money < 0 ? ffEA0503 : ff606060,
+                  ),
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/in-app');
+                    },
+                    style: ElevatedButton.styleFrom(
+                        textStyle: const TextStyle(fontSize: 20)),
+                    child: const Text(
+                      'Guide',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 83, 60, 79), fontSize: 15),
+                    )),
+              ],
             ),
             const SizedBox(height: 14),
             Obx(() => CustomSegmented(
-              listButtonTitle: const [
-                'home.segmented.income',
-                'home.segmented.expense',
-              ],
-              initIndex: controller.typeCategory.value,
-              didSelectedIndex: (int index) {
-                controller.changeSelectIndex(index);
-                controller.getListDataTransactions();
-              },
-            )),
+                  listButtonTitle: const [
+                    'home.segmented.income',
+                    'home.segmented.expense',
+                  ],
+                  initIndex: controller.typeCategory.value,
+                  didSelectedIndex: (int index) {
+                    controller.changeSelectIndex(index);
+                    controller.getListDataTransactions();
+                  },
+                )),
             const SizedBox(height: 20),
             SizedBox(
               height: heightContent,
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
+                  child: Column(
+                children: [
                   Obx(() => HomeChart(
-                    totalMoney: controller.totalMoney.toInt(),
-                    dataChart: controller.listTypeActive.toList(),
-                    startDate: controller.startDate.value,
-                    endDate: controller.endDate,
-                    currentState: controller.currentState,
-                    typeTransactions: controller.typeTransactions,
-                    onTapAddTransaction: () {
-                      controller.addTransaction(controller.typeCategory.value);
-                    },
-                    changeDate: (startDateChange, endDateChange, currentStateChange) {
-                      controller.changeDateRange(startDateChange, endDateChange);
-                      controller.changeCurrentState(currentStateChange);
-                      controller.getListDataTransactions();
-                    },
-                  )),
+                        totalMoney: controller.totalMoney.toInt(),
+                        dataChart: controller.listTypeActive.toList(),
+                        startDate: controller.startDate.value,
+                        endDate: controller.endDate,
+                        currentState: controller.currentState,
+                        typeTransactions: controller.typeTransactions,
+                        onTapAddTransaction: () {
+                          controller
+                              .addTransaction(controller.typeCategory.value);
+                        },
+                        changeDate: (startDateChange, endDateChange,
+                            currentStateChange) {
+                          controller.changeDateRange(
+                              startDateChange, endDateChange);
+                          controller.changeCurrentState(currentStateChange);
+                          controller.getListDataTransactions();
+                        },
+                      )),
                   const SizedBox(height: 20),
-                  Obx(() => Column(
+                  Obx(
+                    () => Column(
                       children: [
-                        for (var indexList = 0; indexList < controller.listTypeActive.length; indexList++)
-                        GestureDetector(
-                          onTap: () {
-                            controller.goToTransactionByCategory(controller.listTypeActive[indexList].typeId);
-                          },
-                          child: TransactionCell(dataShow: controller.listTypeActive[indexList], totalMoney: controller.totalMoney.toInt()),
-                        ),
+                        for (var indexList = 0;
+                            indexList < controller.listTypeActive.length;
+                            indexList++)
+                          GestureDetector(
+                            onTap: () {
+                              controller.goToTransactionByCategory(
+                                  controller.listTypeActive[indexList].typeId);
+                            },
+                            child: TransactionCell(
+                                dataShow: controller.listTypeActive[indexList],
+                                totalMoney: controller.totalMoney.toInt()),
+                          ),
                       ],
                     ),
                   ),
-                ],)
-              ),
+                ],
+              )),
             ),
           ],
         ),
@@ -133,26 +159,32 @@ class HomeController extends GetxController {
   // get list data chart
   void getListDataTransactions() async {
     if (typeTransactions == Global.INCOMES) {
-      listIncomes.value = await DatabaseManager.instance.getIncomes(startDate.value, endDate);
+      listIncomes.value =
+          await DatabaseManager.instance.getIncomes(startDate.value, endDate);
     } else {
-      listIncomes.value = await DatabaseManager.instance.getExpenses(startDate.value, endDate);
+      listIncomes.value =
+          await DatabaseManager.instance.getExpenses(startDate.value, endDate);
     }
     int totalMoneyTemp = 0;
     var listTypeActiveTemp = <TransactionsByCategoryModel>[];
-    for(var i = 0; i < listIncomes.length; i++){
+    for (var i = 0; i < listIncomes.length; i++) {
       totalMoneyTemp = totalMoneyTemp + listIncomes[i].money;
       if (listTypeActiveTemp.isNotEmpty) {
-        var checkType = listTypeActiveTemp.where((type) => type.typeId == listIncomes[i].typeId);
-        if(checkType.isEmpty) {
-          listTypeActiveTemp.add(TransactionsByCategoryModel.fromJson(listIncomes[i].toJson()));
+        var checkType = listTypeActiveTemp
+            .where((type) => type.typeId == listIncomes[i].typeId);
+        if (checkType.isEmpty) {
+          listTypeActiveTemp.add(
+              TransactionsByCategoryModel.fromJson(listIncomes[i].toJson()));
         } else {
-          int index = getKeyInListType(listTypeActiveTemp, listIncomes[i].typeId);
+          int index =
+              getKeyInListType(listTypeActiveTemp, listIncomes[i].typeId);
           var newType = checkType.toList()[0];
           newType.money = newType.money + listIncomes[i].money;
           listTypeActiveTemp[index] = newType;
         }
       } else {
-        listTypeActiveTemp.add(TransactionsByCategoryModel.fromJson(listIncomes[i].toJson()));
+        listTypeActiveTemp
+            .add(TransactionsByCategoryModel.fromJson(listIncomes[i].toJson()));
       }
     }
     listTypeActive.value = listTypeActiveTemp;
@@ -164,11 +196,12 @@ class HomeController extends GetxController {
   }
 
   void goToTransactionByCategory(int categoryId) {
-    Get.to(() => TransactionListCategoryScreen(categoryId: categoryId, typeCategory: typeCategory.value));
+    Get.to(() => TransactionListCategoryScreen(
+        categoryId: categoryId, typeCategory: typeCategory.value));
   }
 
-  getKeyInListType (listType, id) {
-    for(var i = 0; i < listType.length; i++){
+  getKeyInListType(listType, id) {
+    for (var i = 0; i < listType.length; i++) {
       if (listType[i].typeId == id) {
         return i;
       }
