@@ -41,7 +41,11 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/in-app');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const InApp()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                         textStyle: const TextStyle(fontSize: 20)),
