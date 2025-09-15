@@ -37,20 +37,27 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: 1.1.0
   loader_overlay: 2.3.0
-  fluttertoast: 8.2.2
-  shared_preferences: 2.2.0
-  intl: ^0.19.0
+  fluttertoast: ^8.2.12
+  shared_preferences: ^2.5.3
+  intl: 0.20.2
   flutter_launcher_icons: 0.13.1
   get: 4.6.6
   connectivity_plus: 5.0.1
-  sqflite: 2.3.0
   fl_chart: 0.64.0
-  image_picker: ^0.8.4+10
+  image_picker: ^1.1.2
   path_provider: ^2.0.11
-  in_app_purchase: ^3.1.11
-
+  in_app_purchase: ^3.2.3
+  flutter_plugin_android_lifecycle: ^2.0.28
+  image_picker_android: ^0.8.12+24
+  path_provider_android: ^2.2.17
+  sqflite: ^2.4.2
+  win32: ^5.5.1
+  
   flutter_localizations:
     sdk: flutter
+
+dependency_overrides:
+  win32: ^5.5.1
 
 dev_dependencies:
   flutter_test:
