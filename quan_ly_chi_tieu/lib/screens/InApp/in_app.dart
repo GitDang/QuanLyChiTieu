@@ -13,13 +13,13 @@ class InApp extends StatefulWidget {
 
 class _InAppState extends State<InApp> {
   static const _productIds = {
+    'product_019do',
     'product_1do',
     'product_2do',
     'product_3do',
     'product_5do',
     'product_7do',
-    'product_10do',
-    'product_20do'
+    'product_10do'
   };
   final InAppPurchase _connection = InAppPurchase.instance;
   late StreamSubscription<List<PurchaseDetails>> _subscription;
